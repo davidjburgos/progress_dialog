@@ -88,16 +88,20 @@ class ProgressDialog {
   }
 
   void update(
-      {double progress,
-      double maxProgress,
-      String message,
-      Widget progressWidget,
-      TextStyle progressTextStyle,
-      TextStyle messageTextStyle}) {
+      {
+        Widget customBody,
+        double progress,
+        double maxProgress,
+        String message,
+        Widget progressWidget,
+        TextStyle progressTextStyle,
+        TextStyle messageTextStyle
+      }) {
     if (_progressDialogType == ProgressDialogType.Download) {
       _progress = progress ?? _progress;
     }
 
+    _customBody = customBody ?? _customBody;
     _dialogMessage = message ?? _dialogMessage;
     _maxProgress = maxProgress ?? _maxProgress;
     _progressWidget = progressWidget ?? _progressWidget;
